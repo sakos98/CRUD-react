@@ -1,0 +1,32 @@
+.card {
+  border: solid 1px black;
+}
+.positionCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+span {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.spanAuthor::before {
+  content: "Author: ";
+  font-weight: bold;
+}
+
+
+.spanPublished::before {
+  content: "Published: ";
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .positionCard {
+    display: flex;
+    flex-direction: column;
+  }
+}
