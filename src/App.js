@@ -7,6 +7,7 @@ import About from './components/pages/About/About';
 import { Container } from "react-bootstrap";
 import Header from "./components/views/Header/Header";
 import Footer from "./components/views/Footer/Footer";
+import EditPost from "./components/features/EditPost/EditPost";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="post/:id" element={<Post />}/>
             <Route path="post/add" element={<ListPost />} />
             <Route path="about" element={<About />} />
+            <Route path="post/edit/:id" element={<EditPost />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Footer />

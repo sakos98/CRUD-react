@@ -1,10 +1,15 @@
 .card {
   border: solid 1px black;
+  width: 25rem;
+  margin-top: 20px;
 }
+
 .positionCard {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 20px;
 }
 
 span {
