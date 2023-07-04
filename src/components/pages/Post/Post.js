@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import { dateToStr } from '../../../utils/dateToStr';
 const Post = props => {
 
   const { id } = useParams(); 
@@ -38,8 +38,12 @@ const Post = props => {
                             <Button onClick={handleShow} variant='btn btn-outline-danger'>Delete</Button>
                     </div>
                 </div>
-                <p><b>Author: </b>{postData.author}<br /><b>Published: </b>{postData.publishedDate}</p>
-                <p>{postData.shortDescription}</p>
+                <p>
+                <b>Author: </b>{postData.author}<br/>
+                <b>Published:</b>
+                {dateToStr(postData.publishedDate)}
+                </p>
+                <p><p dangerouslySetInnerHTML={{ __html: postData.content }} /></p>
             </div>
         </div>
 

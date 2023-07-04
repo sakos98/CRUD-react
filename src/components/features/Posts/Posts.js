@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { getAllPosts } from "../../../redux/postsRedux";
 import styles from '../Posts/Posts.module.scss';
 import { Link } from "react-router-dom";
+import { dateToStr } from "../../../utils/dateToStr";
 
 const Posts = () => {
 
@@ -15,8 +16,12 @@ const Posts = () => {
         <div key={post.id}>
           <h3 className="card-title">{post.title}</h3>
           <span className={styles.spanAuthor}><p>{post.author}</p></span>
-          <span className={styles.spanPublished}><p>{post.publishedDate}</p></span>
-          <p>{post.shortDescription}</p>
+          <span 
+            className={styles.spanPublished}>
+            <p>{dateToStr(post.publishedDate)}</p>
+            
+          </span>
+          <p dangerouslySetInnerHTML={{ __html: post.shortDescription }} />
           {/* <alt>{post.content}</alt> */}
           <Link key={post.id} to={`/post/${post.id}`} className="btn btn-primary">Read more</Link>
         </div>
