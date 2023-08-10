@@ -10,7 +10,6 @@ import Footer from "./components/views/Footer/Footer";
 import EditPost from "./components/features/EditPost/EditPost";
 import Category from './components/pages/Category/Category';
 import CategoryPage from './components/pages/CategoryPage/CategoryPage';
-import ProjectNew from "./components/views/ProjectNew/ProjectNew";
 
 
 const App = () => {
@@ -29,7 +28,6 @@ const App = () => {
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Footer />
-          <ProjectNew />
       </Container>
     </main>
   );
