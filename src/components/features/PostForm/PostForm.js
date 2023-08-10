@@ -6,6 +6,8 @@ import 'react-quill/dist/quill.snow.css';
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+import { useSelector } from 'react-redux';
+import { getAllCategory } from '../../../redux/categoryRedux';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
@@ -14,20 +16,25 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [title, setTitle] = useState(props.title || '');
   const [author, setAuthor] = useState(props.author || '');
   const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
+  const [category, setCategory] = useState(props.title || '');
   const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
   const [content, setContent] = useState(props.content || '');
 
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
   const [shortDescriptionError, setShortDescriptionError] = useState(false);
+  const [categoryError, setCategoryError] = useState(false);
+
+  const categories = useSelector(getAllCategory);
 
 
   const handleSubmit = () => {
     setContentError(!content)
     setDateError(!publishedDate)
     setShortDescriptionError(!shortDescription)
-    if(content && publishedDate) {
-      action({ title, author, publishedDate, shortDescription, content });
+    setCategoryError(!category);
+    if(content && publishedDate && category) {
+      action({ title, author, publishedDate, category, shortDescription, content });
     }
   };
 
@@ -65,6 +72,23 @@ const PostForm = ({ action, actionText, ...props }) => {
      {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
    </Form.Group>
    <br />
+
+   <Form.Group>
+          <Form.Label>Category</Form.Label>
+          <Form.Select
+            className='mb-3 w-50'
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option>Select category</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </Form.Select>
+        </Form.Group>
+
+
    <Form.Group className="mb-3" controlId="shortDescription">
    <Form.Label>Short description</Form.Label>
    <ReactQuill

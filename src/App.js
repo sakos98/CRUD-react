@@ -8,6 +8,9 @@ import { Container } from "react-bootstrap";
 import Header from "./components/views/Header/Header";
 import Footer from "./components/views/Footer/Footer";
 import EditPost from "./components/features/EditPost/EditPost";
+import Category from './components/pages/Category/Category';
+import CategoryPage from './components/pages/CategoryPage/CategoryPage';
+import ProjectNew from "./components/views/ProjectNew/ProjectNew";
 
 
 const App = () => {
@@ -21,9 +24,12 @@ const App = () => {
             <Route path="post/add" element={<ListPost />} />
             <Route path="about" element={<About />} />
             <Route path="post/edit/:id" element={<EditPost />} />
+            <Route path='/category' element={<Category />} />
+            <Route path='/category/:category' element={<CategoryPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Footer />
+          <ProjectNew />
       </Container>
     </main>
   );

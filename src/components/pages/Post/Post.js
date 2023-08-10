@@ -43,7 +43,11 @@ const Post = props => {
                 <b>Published:</b>
                 {dateToStr(postData.publishedDate)}
                 </p>
-                <p><p dangerouslySetInnerHTML={{ __html: postData.content }} /></p>
+                <div>
+                <strong>Category: </strong>
+                  {postData.category}
+            </div> 
+                <p dangerouslySetInnerHTML={{ __html: postData.content }} />
             </div>
         </div>
 

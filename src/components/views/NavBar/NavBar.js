@@ -12,6 +12,7 @@ const NavBar = () => {
               <Nav.Link as={NavLink} to="/">Blog.app</Nav.Link>
               <div className={styles.rightLink}>            
               <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+              <Nav.Link as={NavLink} to='/category'>Categories</Nav.Link>
               <Nav.Link as={NavLink} to="/about">About</Nav.Link>
               </div>  
           </Nav>

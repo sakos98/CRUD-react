@@ -29,6 +29,11 @@ span {
   font-weight: bold;
 }
 
+.spanCategory::before {
+  content: "Category: ";
+  font-weight: bold;
+}
+
 @media screen and (max-width: 800px) {
   .positionCard {
     display: flex;
